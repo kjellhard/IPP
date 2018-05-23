@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Mer saker..." />
+    <item android:title="Mina enheter" />
+    <item android:title="Lägg till enhet" />
+    <item android:title="Inställningar"  android:icon="@drawable/ic_menu_manage"/>
+</menu>
