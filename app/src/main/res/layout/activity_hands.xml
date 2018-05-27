@@ -1,58 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.isak.ipp.hands">
+    tools:context="com.example.isak.ipp.Main"
+    tools:layout_editor_absoluteY="81dp"
+    android:id="@+id/drawerLayout">
 
-    <Button
-        android:id="@+id/lHand"
-        android:layout_width="170dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="75dp"
-        android:text="Vänster"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/lHslide"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alwaysDrawnWithCache="false">
 
-    <Button
-        android:id="@+id/rHand"
-        android:layout_width="170dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="31dp"
-        android:text="Höger"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/rHslide"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lHslide" />
+        <Button
+            android:id="@+id/lHand"
+            android:layout_width="170dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="27dp"
+            android:layout_marginTop="75dp"
+            android:text="Vänster"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/lSwitch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <SeekBar
-        android:id="@+id/lHslide"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="76dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginStart="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/rHand"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lHand" />
+        <Button
+            android:id="@+id/rHand"
+            android:layout_width="170dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="168dp"
+            android:text="Höger"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lSwitch" />
 
-    <SeekBar
-        android:id="@+id/rHslide"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="83dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginStart="52dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rHand" />
+        <Switch
+            android:id="@+id/lSwitch"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="96dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintBottom_toTopOf="@+id/rHand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lHand" />
 
-</android.support.constraint.ConstraintLayout>
+        <Switch
+            android:id="@+id/rSwitch"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="96dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:visibility="visible"
+        app:menu="@menu/menulist">
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>

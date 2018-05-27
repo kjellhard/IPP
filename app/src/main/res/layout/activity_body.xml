@@ -16,27 +16,52 @@
         <Button
             android:id="@+id/all"
             android:layout_width="170dp"
-            android:layout_height="91dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="27dp"
             android:layout_marginTop="75dp"
-            android:text="Alla enheter"
+            android:text="Händer"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/aSwitch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.918" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/feet"
+            android:layout_width="170dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="168dp"
+            android:text="Fötter"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aSwitch" />
+
+        <Switch
+            android:id="@+id/fSwitch"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="96dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Switch
             android:id="@+id/aSwitch"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="180dp"
+            android:layout_marginBottom="96dp"
             android:scaleX="2"
             android:scaleY="2"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/feet"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/all" />
 
     </android.support.constraint.ConstraintLayout>
     <android.support.design.widget.NavigationView

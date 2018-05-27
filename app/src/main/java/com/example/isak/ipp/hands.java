@@ -1,13 +1,72 @@
 package com.example.isak.ipp;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 public class hands extends AppCompatActivity {
+
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
+    boolean test = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hands);
+        mDrawerLayout = findViewById(R.id.drawerLayout);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Switch leftSwitch = findViewById(R.id.lSwitch);
+        Switch rightSwitch = findViewById(R.id.rSwitch);
+        boolean onoff = getIntent().getExtras().getBoolean("switch");
+        leftSwitch.setChecked(onoff);
+        rightSwitch.setChecked(onoff);
+
+        /*leftSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b)
+                {
+                    test = true;
+                }
+                else
+                {
+                    test = false;
+                }
+            }
+        });
+        rightSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b)
+                {
+                }
+                else
+                {
+                }
+            }
+        });*/
+    }
+    /*@Override
+    public void onBackPressed()
+    {
+        Intent i = new Intent();
+        i.putExtra("save", test);
+        setResult(Activity.RESULT_OK, i);
+        finish();
+    }*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

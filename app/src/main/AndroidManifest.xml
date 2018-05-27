@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".hands" />
         <activity android:name=".feet" />
+        <activity android:name=".body"></activity>
     </application>
 
 </manifest>
