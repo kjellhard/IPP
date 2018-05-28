@@ -15,6 +15,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class body extends AppCompatActivity {
 
     Switch handSwitch;
@@ -25,6 +27,7 @@ public class body extends AppCompatActivity {
     boolean back = true;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    Main mActivity = new Main();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +66,23 @@ public class body extends AppCompatActivity {
                 if (b)
                 {
                     lHand = true;
+                    try {
+                        mActivity.openBT();
+                        mActivity.sendData("b");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                 }
                 else
                 {
                     lHand = false;
+                    try {
+                        mActivity.openBT();
+                        mActivity.sendData("d");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -75,10 +91,22 @@ public class body extends AppCompatActivity {
                 if (b)
                 {
                     lFoot = true;
+                    try {
+                        mActivity.openBT();
+                        mActivity.sendData("c");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 else
                 {
                     lFoot = false;
+                    try {
+                        mActivity.openBT();
+                        mActivity.sendData("e");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
