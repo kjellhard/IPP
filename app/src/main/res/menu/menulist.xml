@@ -4,6 +4,7 @@
 
     <item android:title="Mer saker..." />
     <item android:title="Mina enheter" />
-    <item android:title="Lägg till enhet" />
+    <item android:title="Lägg till enhet"
+        android:id="@+id/add"/>
     <item android:title="Inställningar"  android:icon="@drawable/ic_menu_manage"/>
 </menu>
