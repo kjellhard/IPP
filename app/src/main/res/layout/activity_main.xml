@@ -19,7 +19,7 @@
             android:layout_height="91dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="75dp"
-            android:text="Alla enheter"
+            android:text="Specifik kroppsdel"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/aSwitch"
             app:layout_constraintEnd_toEndOf="parent"

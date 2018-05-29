@@ -228,7 +228,6 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         {
             public void onClick(View view)
             {
-                //startActivityForResult(new Intent(getApplicationContext(), body.class), 999);
                 Intent b = new Intent (Main.this, body.class);
                 b.putExtra("switch", next);
                 startActivity(b);
