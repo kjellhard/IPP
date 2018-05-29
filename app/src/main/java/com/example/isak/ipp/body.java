@@ -1,6 +1,9 @@
 package com.example.isak.ipp;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -16,6 +19,9 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.UUID;
 
 public class body extends AppCompatActivity {
 
@@ -28,6 +34,8 @@ public class body extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     Main mActivity = new Main();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,50 +71,33 @@ public class body extends AppCompatActivity {
 
         handSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
                 if (b)
                 {
                     lHand = true;
-                    try {
-                        mActivity.openBT();
-                        mActivity.sendData("b");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
 
                 }
                 else
                 {
                     lHand = false;
-                    try {
-                        mActivity.openBT();
-                        mActivity.sendData("d");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+
                 }
             }
         });
         feetSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
                 if (b)
                 {
-                    lFoot = true;
-                    try {
-                        mActivity.openBT();
-                        mActivity.sendData("c");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+
                 }
                 else
                 {
                     lFoot = false;
-                    try {
-                        mActivity.openBT();
-                        mActivity.sendData("e");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+
                 }
             }
         });
@@ -145,5 +136,6 @@ public class body extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

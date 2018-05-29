@@ -124,6 +124,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
             if(action.equals(BluetoothDevice.ACTION_FOUND)) {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 mBTDevices.add(device);
+                mmDevice = device;
                 Log.d(TAG, "onReceive: " + device.getName() + ": " + device.getAddress());
                 mDeviceListAdapter = new DeviceListAdapter(context, R.layout.device_adapter_view, mBTDevices);
                 lvNewDevices.setAdapter(mDeviceListAdapter);
@@ -195,12 +196,17 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         allSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                try {
+                    openBT();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 if (b)
                 {
                     next = true;
                     try {
-                        openBT();
-                        sendData("a");
+                        sendData("7");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -208,9 +214,15 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
                 else
                 {
                     next = false;
+                    try {
+                        sendData("G");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
+
 
         btn1.setOnClickListener(new View.OnClickListener()
         {
@@ -349,7 +361,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         }
     }
 
-    @Override
+
     protected List<BluetoothDevice> doInBackground(Void... params) {
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
         List<BluetoothDevice> listDevices = new ArrayList<BluetoothDevice>();
@@ -361,8 +373,8 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
     }
 
     void openBT() throws IOException {
-        UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); //Standard SerialPortService ID
-        mmSocket = mBTDevices.createRfcommSocketToServiceRecord(uuid);
+        UUID test = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); //Standard SerialPortService ID
+        mmSocket = mmDevice.createRfcommSocketToServiceRecord(test);
         mmSocket.connect();
         mmOutputStream = mmSocket.getOutputStream();
         mmInputStream = mmSocket.getInputStream();
